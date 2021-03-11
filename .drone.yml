@@ -7,3 +7,14 @@ steps:
   image: alpine
   commands:
   - echo "It worked!"
+
+- name: publish
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: lajkoatt/drone-test
+    auto_tag: true
+    auto_tag_suffix: drone-build
